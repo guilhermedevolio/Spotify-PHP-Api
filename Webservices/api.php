@@ -13,11 +13,12 @@ $ss = new SpotifyService();
 
 switch ($_POST['action']) {
     case 'actualMusic':
+
         $currentMusic = (new SpotifyTransformer)
             ->handleListenMusic($ss->getCurrentMusicListen($_SESSION['user_token']));
 
-        if(!$currentMusic) {
-            $retorno['status'] = "sucesso";
+        if(!$currentMusic['music_name']) {
+            $retorno['status'] = "erro";
             $retorno['listen'] = false;
             $retorno['content'] = "Nenhuma música tocando no momento";
             break;

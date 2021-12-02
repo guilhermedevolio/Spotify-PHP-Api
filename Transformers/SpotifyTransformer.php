@@ -1,7 +1,7 @@
 <?php
 
 class SpotifyTransformer {
-    public function handleListenMusic(array $payload) {
+    public function handleListenMusic($payload) {
 
         $progress_to_seconds = $this->getMsToSeconds($payload['progress_ms']);
         $total_music_progress = $this->getMsToSeconds($payload['item']['duration_ms']);
@@ -13,7 +13,8 @@ class SpotifyTransformer {
             'is_playing' => $payload['is_playing'],
             'actual_progress' => $payload['progress_ms'],
             'progress_to_seconds' => $progress_to_seconds,
-            'total_music_progress' => $total_music_progress
+            'total_music_progress' => $total_music_progress,
+            'cover' => $payload['item']['album']['images'][1]['url']
         ];
     }
 
