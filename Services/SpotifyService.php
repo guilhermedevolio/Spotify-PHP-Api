@@ -1,6 +1,6 @@
 <?php
-require_once './Services/CurlService.php';
-require_once './Contracts/SpotifyServiceContract.php';
+require_once  $_SERVER['DOCUMENT_ROOT'] . '/Services/CurlService.php';
+require_once  $_SERVER['DOCUMENT_ROOT'] .  '/Contracts/SpotifyServiceContract.php';
 
 class SpotifyService implements SpotifyServiceContract {
     private $config;
@@ -17,7 +17,7 @@ class SpotifyService implements SpotifyServiceContract {
     public function __construct()
     {
         $this->ch = new CurlService();
-        $this->config = require_once './config.php';
+        $this->config = require_once $_SERVER['DOCUMENT_ROOT'] . './config.php';
         $this->loadConfig();
     }
 
@@ -74,7 +74,7 @@ class SpotifyService implements SpotifyServiceContract {
         return json_decode($response, true);
     }
 
-    public function getCurrentMusicListen(string $token): array
+    public function getCurrentMusicListen(string $token)
     {
         $url = $this->api_url . "/v1/me/player/currently-playing";
 

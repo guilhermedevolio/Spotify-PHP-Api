@@ -4,7 +4,6 @@ header('Content-Type: application/json; charset=utf-8');
 require_once './Services/SpotifyService.php';
 
 $code = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_STRIPPED);
-
 if(!$code) {
     exit(json_encode([
         'status' => 'erro',
@@ -18,6 +17,7 @@ $response = $ss->getAuthorizationToken($code);
 if(!$response['access_token'] || empty($response['access_token'])) {
     header('Location: profile.php?erro=1');
 }
+
 
 $_SESSION['auth'] = true;
 $_SESSION['user_token'] = $response['access_token'];

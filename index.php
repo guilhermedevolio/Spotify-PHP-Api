@@ -6,6 +6,7 @@
 <html>
     <head>
         <title>API Spotify - Guilherme Devólio</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/lux/bootstrap.css">
     </head>
     <body>
         <?php
