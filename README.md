@@ -1,5 +1,5 @@
 <h2>Spotify API - PHP</h2>
-<p>Esse projeto é uma integração muito simples com a API do discord</p>
+<p>Esse projeto é uma integração muito simples com a API do spotify</p>
 <p>Utilizei para ensinar alguns amigos sobre o funcionamento de API's</p>
 
 <h3>Se você quiser usar é muito simples :</h3>
