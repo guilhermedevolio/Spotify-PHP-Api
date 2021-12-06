@@ -9,10 +9,6 @@ require_once './Services/SpotifyService.php';
 require_once './Transformers/SpotifyTransformer.php';
 
 $ss = new SpotifyService();
-echo "<pre>";
-// $rentMusic = $ss->getCurrentMusicListen($_SESSION['user_token'])[;
-//             var_dump($rentMusic);
-//             die();
 ?>
 
 <html>
