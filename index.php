@@ -1,6 +1,10 @@
 <?php
     require_once './Services/SpotifyService.php';
+    require_once './Utils/ErrorHandler.php';
+
     $sService = new SpotifyService();
+    $eHanler = new ErrorHandler();
+    $errorCode = !empty($_GET['erro']) ? htmlspecialchars($_GET['erro']) : false;
 ?>
 
 <html>
@@ -10,21 +14,12 @@
     </head>
     <body>
         <?php
-            if(isset($_GET['erro'])) {
-                switch ($_GET['erro']) {
-                    case '1':
-                        $erro = "Ocorreu um erro ao se autenticar com os serviços do spotify, tente novamente";
-                        break;
-                    
-                    default:
-                        break;
-                }
-            }
+            if(isset($errorCode)) {
 
-            if(isset($erro)) {
-                echo "<a style='color:red'>{$erro}</a><br>";
-            }
         ?>
+            <h2> <?php echo $eHanler->getSpotifyErrorFromCode($errorCode) ?> </h2>
+        <?php } ?>
+
         <a href="<?php echo $sService->getAuthUrl(); ?>">Entrar com spotify</a>
     </body>
 </html>
