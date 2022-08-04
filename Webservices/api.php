@@ -12,7 +12,7 @@ if(!isset($_POST['action'])) {
 $ss = new SpotifyService();
 
 switch ($_POST['action']) {
-    case 'actualMusic':
+    case 'currentMusic':
 
         $currentMusic = (new SpotifyTransformer)
             ->handleListenMusic($ss->getCurrentMusicListen($_SESSION['user_token']));
