@@ -15,7 +15,7 @@ $ss = new SpotifyService();
 $response = $ss->getAuthorizationToken($code);
 
 if(!$response['access_token'] || empty($response['access_token'])) {
-    header('Location: profile.php?erro=1');
+    exit(header('Location: profile.php?erro=1'));
 }
 
 
